@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks, personalInfo } from "@/constants/portfolioData";
@@ -9,11 +9,16 @@ import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
-  const activeSection = useActiveSection(sectionIds);
+  const sectionIds = useMemo(() => navLinks.map((link) => link.href.replace("#", "")), []);
+  const { activeSection, setActiveSection } = useActiveSection(sectionIds);
 
   const handleLinkClick = (href: string) => {
     setIsOpen(false);
+    
+    // Set immediately for snappy UX
+    const id = href.replace("#", "");
+    setActiveSection(id);
+
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });

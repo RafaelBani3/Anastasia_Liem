@@ -28,7 +28,8 @@ export function useActiveSection(sectionIds: string[]) {
     });
 
     return () => observer.disconnect();
-  }, [sectionIds]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sectionIds.join(",")]);
 
-  return activeSection;
+  return { activeSection, setActiveSection };
 }
