@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { Download, Mail, ChevronDown } from "lucide-react";
+import { Download, Mail, ChevronDown, Star, Award, Clock } from "lucide-react";
 import Image from "next/image";
 import { personalInfo } from "@/constants/portfolioData";
 import Button from "@/components/ui/Button";
@@ -43,12 +43,6 @@ const imageVariants: Variants = {
   },
 };
 
-const stats = [
-  { value: "100+", label: "Candidates/Day" },
-  { value: "50-70", label: "Psychotests/Day" },
-  { value: "< 3", label: "Weeks SLA" },
-];
-
 export default function HeroSection() {
   return (
     <section
@@ -59,44 +53,47 @@ export default function HeroSection() {
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.2, scale: 1 }}
+          animate={{ opacity: 0.3, scale: 1 }}
           transition={{ duration: 1.8, ease: "easeOut" }}
-          className="absolute -right-16 -top-16 h-[24rem] w-[24rem] rounded-full bg-dusty-rose/20 blur-3xl sm:h-[28rem] sm:w-[28rem] lg:h-[36rem] lg:w-[36rem]"
+          className="absolute -right-20 -top-20 h-[30rem] w-[30rem] rounded-full bg-dusty-rose/30 blur-3xl sm:h-[36rem] sm:w-[36rem] lg:h-[42rem] lg:w-[42rem]"
         />
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.12, scale: 1 }}
+          animate={{ opacity: 0.15, scale: 1 }}
           transition={{ duration: 1.8, delay: 0.2, ease: "easeOut" }}
-          className="absolute -left-16 top-1/3 h-56 w-56 rounded-full bg-navy/10 blur-3xl sm:h-72 sm:w-72 lg:h-80 lg:w-80"
+          className="absolute -left-16 top-1/3 h-64 w-64 rounded-full bg-navy/20 blur-3xl sm:h-80 sm:w-80 lg:h-96 lg:w-96"
         />
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+          
           {/* Text content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="order-2 text-center lg:order-1 lg:text-left"
+            className="order-2 text-center lg:order-1 lg:text-left z-10"
           >
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center rounded-full bg-white/90 px-4 py-1.5 text-xs font-medium text-navy shadow-soft backdrop-blur-sm sm:text-sm"
+              className="inline-flex items-center rounded-full bg-white/80 px-4 py-2 text-xs font-semibold tracking-wide text-navy shadow-sm backdrop-blur-md border border-white/50 sm:text-sm"
             >
+              <Star className="mr-2 h-3 w-3 text-dusty-rose" />
               Talent Acquisition & HR Professional
             </motion.div>
 
             <motion.h1
               variants={itemVariants}
-              className="mt-4 font-heading text-3xl font-bold leading-tight text-navy fold:text-4xl sm:text-5xl lg:text-[3.25rem] lg:leading-[1.15] xl:text-6xl"
+              className="mt-6 font-heading text-4xl font-bold leading-tight text-navy sm:text-5xl lg:text-[3.5rem] lg:leading-[1.15] xl:text-[4rem]"
             >
-              {personalInfo.fullName}
+              Hi, I&apos;m <br className="hidden lg:block" />
+              <span className="text-dusty-rose">{personalInfo.fullName}</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate sm:mt-6 sm:text-base lg:mx-0 lg:text-lg"
+              className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate sm:text-lg lg:mx-0"
             >
               Helping organizations find, assess, and connect with the right
               talent. Experienced in end-to-end recruitment and psychological
@@ -105,66 +102,113 @@ export default function HeroSection() {
 
             <motion.div
               variants={itemVariants}
-              className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4 lg:justify-start"
+              className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
             >
-              <Button href="#contact" variant="primary" size="md">
-                <Mail size={18} />
-                Connect With Me
+              <Button href="#contact" variant="primary" size="lg">
+                <Mail size={18} className="mr-2" />
+                Let&apos;s Talk
               </Button>
               <Button
                 href="/cv-anastasia-liem.pdf"
                 download="CV-Anastasia-Liem.pdf"
                 variant="outline"
-                size="md"
+                size="lg"
+                className="bg-white/50 backdrop-blur-sm border-navy/10 hover:bg-white/80"
               >
-                <Download size={18} />
+                <Download size={18} className="mr-2" />
                 Download CV
               </Button>
             </motion.div>
 
-            {/* Mini stats */}
+            {/* Mini stats - Mobile/Tablet Only */}
             <motion.div
               variants={itemVariants}
-              className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:mt-10 lg:justify-start"
+              className="mt-12 grid grid-cols-3 gap-3 sm:gap-4 lg:hidden"
             >
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="text-center lg:text-left"
-                >
-                  <p className="font-heading text-xl font-bold text-navy sm:text-2xl">
-                    {stat.value}
-                  </p>
-                  <p className="text-xs text-slate sm:text-sm">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
+              <div className="flex flex-col items-center rounded-2xl bg-white/60 p-4 shadow-sm backdrop-blur-sm border border-white/40">
+                <p className="font-heading text-xl font-bold text-navy sm:text-2xl">100+</p>
+                <p className="mt-1 text-[10px] sm:text-xs font-medium text-slate text-center">Candidates/Day</p>
+              </div>
+              <div className="flex flex-col items-center rounded-2xl bg-white/60 p-4 shadow-sm backdrop-blur-sm border border-white/40">
+                <p className="font-heading text-xl font-bold text-navy sm:text-2xl">50-70</p>
+                <p className="mt-1 text-[10px] sm:text-xs font-medium text-slate text-center">Psychotests/Day</p>
+              </div>
+              <div className="flex flex-col items-center rounded-2xl bg-white/60 p-4 shadow-sm backdrop-blur-sm border border-white/40">
+                <p className="font-heading text-xl font-bold text-navy sm:text-2xl">&lt; 3</p>
+                <p className="mt-1 text-[10px] sm:text-xs font-medium text-slate text-center">Weeks SLA</p>
+              </div>
             </motion.div>
           </motion.div>
 
-          {/* Profile image */}
+          {/* Profile image with floating stats */}
           <motion.div
             variants={imageVariants}
             initial="hidden"
             animate="visible"
-            className="order-1 flex justify-center lg:order-2"
+            className="order-1 relative flex justify-center lg:order-2 z-0 pt-8 lg:pt-0"
           >
             <div className="relative">
-              {/* Soft glow */}
-              <div className="absolute -inset-4 rounded-full bg-dusty-rose/15 blur-2xl sm:-inset-6" />
+              {/* Soft glow behind image */}
+              <div className="absolute -inset-10 rounded-full bg-dusty-rose/20 blur-3xl" />
+              <div className="absolute -inset-10 rounded-full bg-navy/10 blur-3xl translate-y-12 translate-x-12" />
 
-              {/* Image container */}
-              <div className="relative h-60 w-60 overflow-hidden rounded-full border-[4px] border-white bg-white shadow-medium fold:h-64 fold:w-64 sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-[360px] lg:w-[360px] xl:h-[400px] xl:w-[400px]">
+              {/* Arch Image container */}
+              <div className="relative h-[340px] w-[260px] overflow-hidden rounded-t-[140px] rounded-b-[32px] border-[8px] border-white/90 bg-white shadow-2xl backdrop-blur-sm sm:h-[420px] sm:w-[320px] lg:h-[500px] lg:w-[360px] xl:h-[560px] xl:w-[400px] z-10">
                 <Image
                   src="/image.png"
                   alt={personalInfo.fullName}
                   fill
                   priority
-                  className="object-cover object-top"
-                  sizes="(max-width: 360px) 240px, (max-width: 640px) 256px, (max-width: 768px) 288px, (max-width: 1024px) 320px, 400px"
+                  className="object-cover object-center transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 640px) 260px, (max-width: 1024px) 320px, 400px"
                 />
               </div>
+
+              {/* Floating Stats - Desktop Only */}
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.2, duration: 0.8, type: "spring" }}
+                className="hidden lg:flex absolute top-16 -left-20 z-20 items-center gap-4 rounded-2xl bg-white/95 p-4 shadow-xl backdrop-blur-md border border-white/60"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-bg-accent text-navy">
+                   <Star size={24} />
+                </div>
+                <div>
+                   <p className="font-heading text-2xl font-bold text-navy leading-none">100+</p>
+                   <p className="mt-1 text-sm font-medium text-slate">Candidates/Day</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.4, duration: 0.8, type: "spring" }}
+                className="hidden lg:flex absolute bottom-36 -right-16 z-20 items-center gap-4 rounded-2xl bg-white/95 p-4 shadow-xl backdrop-blur-md border border-white/60"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-bg-accent text-navy">
+                   <Clock size={24} />
+                </div>
+                <div>
+                   <p className="font-heading text-2xl font-bold text-navy leading-none">&lt; 3</p>
+                   <p className="mt-1 text-sm font-medium text-slate">Weeks SLA</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.6, duration: 0.8, type: "spring" }}
+                className="hidden lg:flex absolute -bottom-8 left-8 z-20 items-center gap-4 rounded-2xl bg-white/95 p-4 shadow-xl backdrop-blur-md border border-white/60"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-bg-accent text-navy">
+                   <Award size={24} />
+                </div>
+                <div>
+                   <p className="font-heading text-2xl font-bold text-navy leading-none">50-70</p>
+                   <p className="mt-1 text-sm font-medium text-slate">Psychotests/Day</p>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -173,19 +217,19 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-          className="mt-12 flex justify-center lg:mt-16"
+          transition={{ delay: 2, duration: 0.8 }}
+          className="mt-16 flex justify-center lg:mt-20"
         >
           <motion.a
             href="#about"
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-1 text-slate hover:text-navy transition-colors"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-2 text-slate hover:text-dusty-rose transition-colors"
           >
-            <span className="text-xs font-medium tracking-wide sm:text-sm">
+            <span className="text-xs font-medium tracking-widest uppercase">
               Scroll Down
             </span>
-            <ChevronDown size={18} />
+            <ChevronDown size={20} />
           </motion.a>
         </motion.div>
       </div>

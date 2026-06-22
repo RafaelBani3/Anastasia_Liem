@@ -41,20 +41,29 @@ export default function Navbar() {
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.replace("#", "");
             return (
-              <li key={link.href}>
-                <motion.button
+              <li key={link.href} className="relative">
+                <button
                   onClick={() => handleLinkClick(link.href)}
-                  whileHover={{ y: -1 }}
-                  whileTap={{ y: 0 }}
                   className={cn(
-                    "relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-300",
+                    "relative z-10 px-4 py-1.5 text-sm font-medium transition-colors duration-300",
                     isActive
-                      ? "text-navy bg-bg-accent"
-                      : "text-slate hover:text-navy hover:bg-bg-accent/50"
+                      ? "text-navy"
+                      : "text-slate hover:text-navy"
                   )}
                 >
                   {link.label}
-                </motion.button>
+                </button>
+                {isActive && (
+                  <motion.div
+                    layoutId="navbar-active-pill"
+                    className="absolute inset-0 rounded-full bg-bg-accent"
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 30,
+                    }}
+                  />
+                )}
               </li>
             );
           })}
@@ -95,10 +104,10 @@ export default function Navbar() {
                     <button
                       onClick={() => handleLinkClick(link.href)}
                       className={cn(
-                        "block w-full rounded-full py-2.5 text-left text-sm font-medium transition-colors duration-300",
+                        "block w-full rounded-full py-2.5 text-left text-sm font-medium transition-colors duration-300 px-4",
                         isActive
-                          ? "text-navy bg-bg-accent px-4"
-                          : "text-slate hover:text-navy hover:bg-bg-accent/50 px-4"
+                          ? "text-navy bg-bg-accent"
+                          : "text-slate hover:text-navy hover:bg-bg-accent/50"
                       )}
                     >
                       {link.label}
