@@ -43,32 +43,31 @@ const imageVariants: Variants = {
   },
 };
 
-const floatingBadges = [
-  { label: "Talent Acquisition", position: "top-4 -left-4 lg:-left-8" },
-  { label: "Psychology", position: "top-1/4 -right-4 lg:-right-8" },
-  { label: "HR Operations", position: "bottom-16 -left-4 lg:-left-8" },
-  { label: "Assessment", position: "bottom-8 -right-4 lg:-right-8" },
+const stats = [
+  { value: "100+", label: "Candidates/Day" },
+  { value: "50-70", label: "Psychotests/Day" },
+  { value: "< 3", label: "Weeks SLA" },
 ];
 
 export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-bg-base via-bg-base to-bg-accent pt-28 pb-12 sm:pt-32 lg:pt-28 lg:pb-20"
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-bg-base via-bg-base to-bg-accent pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-32 lg:pb-24"
     >
       {/* Decorative background elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.25, scale: 1 }}
+          animate={{ opacity: 0.2, scale: 1 }}
           transition={{ duration: 1.8, ease: "easeOut" }}
-          className="absolute -right-20 -top-20 h-[28rem] w-[28rem] rounded-full bg-dusty-rose/20 blur-3xl sm:h-[32rem] sm:w-[32rem] lg:h-[40rem] lg:w-[40rem]"
+          className="absolute -right-16 -top-16 h-[24rem] w-[24rem] rounded-full bg-dusty-rose/20 blur-3xl sm:h-[28rem] sm:w-[28rem] lg:h-[36rem] lg:w-[36rem]"
         />
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.15, scale: 1 }}
+          animate={{ opacity: 0.12, scale: 1 }}
           transition={{ duration: 1.8, delay: 0.2, ease: "easeOut" }}
-          className="absolute -left-20 top-1/3 h-64 w-64 rounded-full bg-navy/10 blur-3xl sm:h-80 sm:w-80 lg:h-96 lg:w-96"
+          className="absolute -left-16 top-1/3 h-56 w-56 rounded-full bg-navy/10 blur-3xl sm:h-72 sm:w-72 lg:h-80 lg:w-80"
         />
       </div>
 
@@ -97,7 +96,7 @@ export default function HeroSection() {
 
             <motion.p
               variants={itemVariants}
-              className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate sm:mt-6 sm:text-base sm:text-lg lg:mx-0"
+              className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate sm:mt-6 sm:text-base lg:mx-0 lg:text-lg"
             >
               Helping organizations find, assess, and connect with the right
               talent. Experienced in end-to-end recruitment and psychological
@@ -123,21 +122,17 @@ export default function HeroSection() {
               </Button>
             </motion.div>
 
-            {/* Mini stats - desktop */}
+            {/* Mini stats */}
             <motion.div
               variants={itemVariants}
-              className="mt-8 hidden items-center justify-center gap-6 sm:mt-10 sm:flex lg:justify-start"
+              className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:mt-10 lg:justify-start"
             >
-              {[
-                { value: "100+", label: "Candidates/Day" },
-                { value: "50-70", label: "Psychotests/Day" },
-                { value: "<3", label: "Weeks SLA" },
-              ].map((stat) => (
+              {stats.map((stat) => (
                 <div
                   key={stat.label}
                   className="text-center lg:text-left"
                 >
-                  <p className="font-heading text-2xl font-bold text-navy sm:text-3xl">
+                  <p className="font-heading text-xl font-bold text-navy sm:text-2xl">
                     {stat.value}
                   </p>
                   <p className="text-xs text-slate sm:text-sm">
@@ -157,51 +152,40 @@ export default function HeroSection() {
           >
             <div className="relative">
               {/* Soft glow */}
-              <div className="absolute -inset-6 rounded-full bg-dusty-rose/15 blur-2xl sm:-inset-8" />
-
-              {/* Floating badges - desktop */}
-              {floatingBadges.map((badge, index) => (
-                <motion.div
-                  key={badge.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
-                  className={`absolute z-10 hidden rounded-full bg-white px-3 py-1.5 text-xs font-medium text-navy shadow-soft backdrop-blur-sm lg:block ${badge.position}`}
-                >
-                  {badge.label}
-                </motion.div>
-              ))}
+              <div className="absolute -inset-4 rounded-full bg-dusty-rose/15 blur-2xl sm:-inset-6" />
 
               {/* Image container */}
-              <div className="relative h-64 w-64 overflow-hidden rounded-full border-[5px] border-white bg-white shadow-medium fold:h-72 fold:w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[380px] lg:w-[380px] xl:h-[420px] xl:w-[420px]">
+              <div className="relative h-60 w-60 overflow-hidden rounded-full border-[4px] border-white bg-white shadow-medium fold:h-64 fold:w-64 sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-[360px] lg:w-[360px] xl:h-[400px] xl:w-[400px]">
                 <Image
                   src="/image.png"
                   alt={personalInfo.fullName}
                   fill
                   priority
                   className="object-cover object-top"
-                  sizes="(max-width: 375px) 256px, (max-width: 640px) 288px, (max-width: 768px) 320px, (max-width: 1024px) 384px, 420px"
+                  sizes="(max-width: 360px) 240px, (max-width: 640px) 256px, (max-width: 768px) 288px, (max-width: 1024px) 320px, 400px"
                 />
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll down indicator */}
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 sm:bottom-8 md:block"
+          className="mt-12 flex justify-center lg:mt-16"
         >
           <motion.a
             href="#about"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center gap-1 text-slate hover:text-navy transition-colors"
           >
-            <span className="text-xs font-medium">Scroll Down</span>
-            <ChevronDown size={20} />
+            <span className="text-xs font-medium tracking-wide sm:text-sm">
+              Scroll Down
+            </span>
+            <ChevronDown size={18} />
           </motion.a>
         </motion.div>
       </div>

@@ -139,7 +139,7 @@ export default function AboutSection() {
                   </div>
                   <div>
                     <p className="text-xs text-slate">Role</p>
-                    <p className="text-sm font-medium text-navy">
+                    <p className="break-words text-sm font-medium text-navy">
                       {personalInfo.role}
                     </p>
                   </div>
