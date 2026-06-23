@@ -60,7 +60,9 @@ export default function SkillsSection() {
               Hard Skills
             </h3>
             <div className="mt-6 space-y-6">
-              {hardSkills.map((category) => (
+              {hardSkills
+                .filter((category) => category.category !== "Assessment Tools")
+                .map((category) => (
                 <motion.div
                   key={category.category}
                   variants={containerVariants}

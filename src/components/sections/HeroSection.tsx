@@ -95,9 +95,8 @@ export default function HeroSection() {
               variants={itemVariants}
               className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate sm:text-lg lg:mx-0"
             >
-              Helping organizations find, assess, and connect with the right
-              talent. Experienced in end-to-end recruitment and psychological
-              assessment tools.
+              Helping organizations attract, assess, and hire the right talent. 
+              Experienced in end-to-end recruitment, from talent sourcing to candidate evaluation, offering, and onboarding.
             </motion.p>
 
             <motion.div

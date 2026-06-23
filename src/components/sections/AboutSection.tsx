@@ -43,7 +43,7 @@ const highlights = [
   },
   {
     icon: Users,
-    title: "End-to-End HR",
+    title: "End-to-End Recruitment",
     description: "From recruitment coordination to HR operations.",
   },
 ];
