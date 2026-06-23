@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { Download, Mail, ChevronDown, Star, Award, Clock } from "lucide-react";
+import { Download, Mail, ChevronDown, Star } from "lucide-react";
 import Image from "next/image";
 import { personalInfo } from "@/constants/portfolioData";
 import Button from "@/components/ui/Button";
@@ -119,24 +119,6 @@ export default function HeroSection() {
               </Button>
             </motion.div>
 
-            {/* Mini stats - Mobile/Tablet Only */}
-            <motion.div
-              variants={itemVariants}
-              className="mt-12 grid grid-cols-3 gap-3 sm:gap-4 lg:hidden"
-            >
-              <div className="flex flex-col items-center rounded-2xl bg-white/60 p-4 shadow-sm backdrop-blur-sm border border-white/40">
-                <p className="font-heading text-xl font-bold text-navy sm:text-2xl">100+</p>
-                <p className="mt-1 text-[10px] sm:text-xs font-medium text-slate text-center">Candidates/Day</p>
-              </div>
-              <div className="flex flex-col items-center rounded-2xl bg-white/60 p-4 shadow-sm backdrop-blur-sm border border-white/40">
-                <p className="font-heading text-xl font-bold text-navy sm:text-2xl">50-70</p>
-                <p className="mt-1 text-[10px] sm:text-xs font-medium text-slate text-center">Psychotests/Day</p>
-              </div>
-              <div className="flex flex-col items-center rounded-2xl bg-white/60 p-4 shadow-sm backdrop-blur-sm border border-white/40">
-                <p className="font-heading text-xl font-bold text-navy sm:text-2xl">&lt; 3</p>
-                <p className="mt-1 text-[10px] sm:text-xs font-medium text-slate text-center">Weeks SLA</p>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Profile image with floating stats */}
@@ -163,51 +145,7 @@ export default function HeroSection() {
                 />
               </div>
 
-              {/* Floating Stats - Desktop Only */}
-              <motion.div 
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.2, duration: 0.8, type: "spring" }}
-                className="hidden lg:flex absolute top-16 -left-20 z-20 items-center gap-4 rounded-2xl bg-white/95 p-4 shadow-xl backdrop-blur-md border border-white/60"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-bg-accent text-navy">
-                   <Star size={24} />
-                </div>
-                <div>
-                   <p className="font-heading text-2xl font-bold text-navy leading-none">100+</p>
-                   <p className="mt-1 text-sm font-medium text-slate">Candidates/Day</p>
-                </div>
-              </motion.div>
 
-              <motion.div 
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.4, duration: 0.8, type: "spring" }}
-                className="hidden lg:flex absolute bottom-36 -right-16 z-20 items-center gap-4 rounded-2xl bg-white/95 p-4 shadow-xl backdrop-blur-md border border-white/60"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-bg-accent text-navy">
-                   <Clock size={24} />
-                </div>
-                <div>
-                   <p className="font-heading text-2xl font-bold text-navy leading-none">&lt; 3</p>
-                   <p className="mt-1 text-sm font-medium text-slate">Weeks SLA</p>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.6, duration: 0.8, type: "spring" }}
-                className="hidden lg:flex absolute -bottom-8 left-8 z-20 items-center gap-4 rounded-2xl bg-white/95 p-4 shadow-xl backdrop-blur-md border border-white/60"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-bg-accent text-navy">
-                   <Award size={24} />
-                </div>
-                <div>
-                   <p className="font-heading text-2xl font-bold text-navy leading-none">50-70</p>
-                   <p className="mt-1 text-sm font-medium text-slate">Psychotests/Day</p>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
