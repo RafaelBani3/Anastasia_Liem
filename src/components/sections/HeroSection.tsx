@@ -93,11 +93,11 @@ export default function HeroSection() {
 
             <motion.p
               variants={itemVariants}
-              className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate sm:text-lg lg:mx-0"
+              className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-justify text-slate sm:text-lg lg:mx-0"
             >
-               Talent Acquisition & HR Professional with experience in end-to-end recruitment, candidate engagement, and people operations—helping organizations build stronger teams through strategic hiring.
+              Talent Acquisition & HR Professional with experience in end-to-end recruitment, candidate engagement, and people operations—helping organizations build stronger teams through strategic hiring.
             </motion.p>
-
+            
             <motion.div
               variants={itemVariants}
               className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
