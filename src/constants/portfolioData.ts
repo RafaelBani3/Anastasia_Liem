@@ -55,7 +55,7 @@ export const experiences: Experience[] = [
       "Contract renewal monitoring",
       "HR documentation",
       "Leave monitoring",
-      "Payroll support",
+      "Payroll Coordination",
       "Monthly reporting",
       "Onboarding support",
     ],
@@ -145,7 +145,7 @@ export const hardSkills: SkillCategory[] = [
       "Contract Administration",
       "Employee Documentation",
       "Leave Management",
-      "Payroll Support",
+      "Payroll Coordination",
     ],
   },
 ];
