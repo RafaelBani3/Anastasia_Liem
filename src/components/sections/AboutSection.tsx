@@ -99,7 +99,7 @@ export default function AboutSection() {
             {aboutParagraphs.map((paragraph, index) => (
               <p
                 key={index}
-                className="text-base leading-relaxed text-slate sm:text-lg"
+                className="text-justify text-base leading-relaxed text-slate sm:text-lg"
               >
                 {paragraph}
               </p>
