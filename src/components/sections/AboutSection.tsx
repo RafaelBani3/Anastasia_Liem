@@ -121,7 +121,7 @@ export default function AboutSection() {
                   &ldquo;
                 </span>
                 <p className="font-heading text-lg font-medium leading-relaxed sm:text-xl">
-                 Great hiring isn't about filling vacancies. It's about creating opportunities where people and organizations can succeed together.
+                  Great hiring isn&apos;t about filling vacancies. It&apos;s about creating opportunities where people and organizations can succeed together.
                 </p>
               </div>
             </Card>
