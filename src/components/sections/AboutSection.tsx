@@ -49,9 +49,8 @@ const highlights = [
 ];
 
 const aboutParagraphs = [
-  "I believe that behind every great company are exceptional people who make it possible.",
-  "As a Human Resources professional with a background in Psychology, I am passionate about understanding people, recognizing their potential, and connecting the right talent with the right opportunities to create meaningful impact.",
-  "My experience in Talent Acquisition and HR Operations has equipped me with strong capabilities in recruitment, candidate assessment, people coordination, and end-to-end HR management.",
+  "Every organization's success begins with its people. My role is to connect talented individuals with opportunities where they can contribute, grow, and create lasting value",
+  "With experience in Talent Acquisition and HR Operations, I have managed end-to-end recruitment, candidate engagement, employee administration, and cross-functional coordination. My background in Psychology helps me understand people beyond resumes—recognizing potential, building relationships, and supporting business goals through effective HR practices.",
 ];
 
 export default function AboutSection() {
@@ -121,9 +120,7 @@ export default function AboutSection() {
                   &ldquo;
                 </span>
                 <p className="font-heading text-lg font-medium leading-relaxed sm:text-xl">
-                  To me, Human Resources is more than an operational function—it
-                  is the bridge that connects individual potential with
-                  organizational growth and long-term success.
+                 "Great hiring isn't about filling vacancies. It's about creating opportunities where people and organizations can succeed together."
                 </p>
               </div>
             </Card>
