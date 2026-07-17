@@ -49,8 +49,9 @@ const highlights = [
 ];
 
 const aboutParagraphs = [
-  "Every organization's success begins with its people. My role is to connect talented individuals with opportunities where they can contribute, grow, and create lasting value",
-  "With experience in Talent Acquisition and HR Operations, I have managed end-to-end recruitment, candidate engagement, employee administration, and cross-functional coordination. My background in Psychology helps me understand people beyond resumes—recognizing potential, building relationships, and supporting business goals through effective HR practices.",
+  "Every organization's success begins with its people. My role is to connect talented individuals with opportunities where they can contribute, grow, and create lasting value.",
+  "With experience in Talent Acquisition and HR Operations, I have managed end-to-end recruitment, candidate engagement, employee administration, and cross-functional coordination.", 
+  "My background in Psychology helps me understand people beyond resumes—recognizing potential, building relationships, and supporting business goals through effective HR practices.",
 ];
 
 export default function AboutSection() {
