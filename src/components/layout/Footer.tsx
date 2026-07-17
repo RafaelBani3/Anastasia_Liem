@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-sm text-slate">
-            © {new Date().getFullYear()} {personalInfo.fullName}. All rights
+            © {new Date().getFullYear()} SteriaC. All rights
             reserved.
           </p>
           <div className="flex items-center gap-6">
